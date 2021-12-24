@@ -11,7 +11,7 @@ use <skin.scad>
 Version 2: Eliptical Rectangle
 */
 mirror([0,0,0])keycap(
-  keyID  = 1, //change profile refer to KeyParameters Struct
+  keyID  = 0, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   Dish   = true, //turn on dish cut
@@ -21,6 +21,13 @@ mirror([0,0,0])keycap(
   homeDot = false, //turn on homedots
   Legends = false
  );
+
+// color( "black", 0.5 )
+//     translate([0,0,0])
+//       union() {
+//         rotate([0,0,180]) import("SA-R3.stl");
+//         import("SA-R3.stl");
+//       }
 
 mx_al_tp_key = [
      "base_sx", 18.5,
@@ -69,12 +76,12 @@ stemLayers      = 50; //resolution of stem to cap top transition
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid,BotLen,TWDif,TLDif,  keyh,WSft,LSft,XSkew,  YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-    [17.16, 17.16,  6.5, 6.95, 12.75,   0,  .5,    4,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R3
-    [17.16, 17.16,  6.5, 6.95, 15.75,   0,   0,   -4,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R1
-    [17.16, 17.16,  6.5, 6.95, 13.5 ,   0,   0,   -3,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R2
-    [17.16, 17.16,  6.5, 6.95, 12.75,   0,   0,    4,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R3DD
-    [17.16, 17.16,  6.5, 6.95, 13.75,   0,   0,  -13,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R4
-    [17.16, 17.16,  6.5, 6.95, 17.0 ,   0, -.5,   20,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2], //R5
+    [17.16, 17.16,  6.5,  7.5, 12.75,   0,   0,    4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R3
+    [17.16, 17.16,  6.5,  7.5, 15.75,   0,   0,   -4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R1
+    [17.16, 17.16,  6.5,  7.5, 13.5 ,   0,   0,   -3,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R2
+    [17.16, 17.16,  6.5,  7.5, 12.75,   0,   0,    4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R3DD
+    [17.16, 17.16,  6.5, 7.75, 13.75,   0, .45,  -13,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R4
+    [17.16, 17.16,  6.5, 7.75, 17.0 ,   0,-.25,   20,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //R5
 ];
 /*
     //0~5
