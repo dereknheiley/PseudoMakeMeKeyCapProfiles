@@ -25,8 +25,8 @@ mirror([0,0,0])keycap(
 // color( "black", 0.5 )
 //     translate([0,0,0])
 //       union() {
-//         rotate([0,0,180]) import("SA-R3.stl");
-//         import("SA-R3.stl");
+//         rotate([0,0,180]) import("STL/SA-R3.stl");
+//         import("STL/SA-R3.stl");
 //       }
 
 mx_al_tp_key = [
