@@ -66,12 +66,12 @@ StemBrimDep     = 0.25;
 stemLayers      = 50; //resolution of stem to cap top transition
 
 // Taller "High Scuplt" "MT3"-ish aka => "Mt4"
-    //R3 normal for how row CAPS/SHIFT '/SHIFT
+    //R3 normal for non-home keys CAPS/SHIFT G H '/SHIFT
     //R1 number row (much taller version of old R5 mod rot180)
     //R2 top alpha row (taller version of old R5 mod rot180)
-    //R3 deepdish home row for ASD FJKL (taller)
+    //R3 deepdish home row for ASDF JKL; (taller)
     //R4 bottom row (taller version of old R2)
-    //R5 bottom two row (dacman) & thumms (old R1 rotated 180)
+    //R5 bottom two row (dacman) & thumbs (old R1 rotated 180)
 
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
