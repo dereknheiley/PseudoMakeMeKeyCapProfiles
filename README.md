@@ -3,6 +3,7 @@
 ## How to
 * make sure OpenSCAD is up to date.
 * unzip libraries.zip into your OpenSCAD libraries
+* ("MT4" profile are the only un-commented keys 0-5 in MX_DES_Standard.scad)
 * select keycap you want to render by changing KeyID value
 * change KeyID to corresponding Parameter ID
 * press F5 to review
