@@ -91,19 +91,22 @@ keyParameters = //keyParameters[KeyID][ParameterID]
   //[17.16, 17.16,  6.5,  6.5, 15.0,   0,   0,   10,      0,     0,   2,   2,      1,      5,      1,    3.5,      2,      2]  //R1 num
 ];
 
+dishID = 0;
 dishParameters = //dishParameter[keyID][ParameterID]
 [ 
 //FFwd1 FFwd2 FPit1 FPit2  DhDIn DhDFnF DhDFnB DhDif ArcIn FArcFn FArcEx  BFwd1 BFwd2 BPit1 BPit2 BArcFn BArcEx 
   //[ 4.8,  4  ,   18,  -79,     4,    2.3,   8.5,    15,     2,  4.8,  4  ,   18,  -71,   8.5,    15,     2,     2], //R3DD 
-    [ 5.0,  3.5,   25,  -50,   5.0,      1,     1,   3.0,     9,  3.5,    2,  5.0,  3.5,    25,   -50,   4.5,     2]  //R1 deep
+    [ 5.0,  3.5,   25,  -50,   5.0,      1,     1,   3.0,     9,  3.5,    2,  5.0,  3.5,    25,   -50,   4.5,     2], //R1 deep
 ];
 
+secondDishID = 0;
 secondaryDishParam = 
 [  
  //right TanIn FTanf BTanf  Fex Bex PhiInit FPhiFin BPhiFin Fkhifin Bkhifin //left   
  // [   1,    9,    9,    7, 2,   225,    205,    200,     7/(8),  7/8,  4.05,   3,    8,     2,   213,    195,   191,   80, 90], //R3DD 
   [   1,    9,    9,    7, 2,   225,    205,    200,     7/(8),  7/8,  4.05,   3,    8,     2,   213,    195,   191,   80, 90] //R1 deep
 ];
+
 function BottomWidth(keyID)  = keyParameters[keyID][0];  //
 function BottomLength(keyID) = keyParameters[keyID][1];  // 
 function TopWidthDiff(keyID) = keyParameters[keyID][2];  //
@@ -123,34 +126,34 @@ function CapRound1f(keyID)   = keyParameters[keyID][15];
 function ChamExponent(keyID) = keyParameters[keyID][16];
 function StemExponent(keyID) = keyParameters[keyID][17];
 
-function FrontForward1(keyID) = dishParameters[keyID][0];  //
-function FrontForward2(keyID) = dishParameters[keyID][1];  // 
-function FrontPitch1(keyID)   = dishParameters[keyID][2];  //
-function FrontPitch2(keyID)   = dishParameters[keyID][3];  //
-function DishDepthInit(keyID) = dishParameters[keyID][4];  //
-function DishDepthFinF(keyID) = dishParameters[keyID][5];  //
-function DishDepthFinB(keyID) = dishParameters[keyID][6];  //
-function DishHeightDif(keyID) = dishParameters[keyID][7];  //
-function InitArc(keyID)       = dishParameters[keyID][8];
-function FrontFinArc(keyID)   = dishParameters[keyID][9];
-function FrontArcExpo(keyID)  = dishParameters[keyID][10];
-function BackForward1(keyID)  = dishParameters[keyID][11];  //
-function BackForward2(keyID)  = dishParameters[keyID][12];  // 
-function BackPitch1(keyID)    = dishParameters[keyID][13];  //
-function BackPitch2(keyID)    = dishParameters[keyID][14];  //
-function BackFinArc(keyID)    = dishParameters[keyID][15];
-function BackArcExpo(keyID)   = dishParameters[keyID][16];
+function FrontForward1(keyID) = dishParameters[dishID][0];  //
+function FrontForward2(keyID) = dishParameters[dishID][1];  // 
+function FrontPitch1(keyID)   = dishParameters[dishID][2];  //
+function FrontPitch2(keyID)   = dishParameters[dishID][3];  //
+function DishDepthInit(keyID) = dishParameters[dishID][4];  //
+function DishDepthFinF(keyID) = dishParameters[dishID][5];  //
+function DishDepthFinB(keyID) = dishParameters[dishID][6];  //
+function DishHeightDif(keyID) = dishParameters[dishID][7];  //
+function InitArc(keyID)       = dishParameters[dishID][8];
+function FrontFinArc(keyID)   = dishParameters[dishID][9];
+function FrontArcExpo(keyID)  = dishParameters[dishID][10];
+function BackForward1(keyID)  = dishParameters[dishID][11];  //
+function BackForward2(keyID)  = dishParameters[dishID][12];  // 
+function BackPitch1(keyID)    = dishParameters[dishID][13];  //
+function BackPitch2(keyID)    = dishParameters[dishID][14];  //
+function BackFinArc(keyID)    = dishParameters[dishID][15];
+function BackArcExpo(keyID)   = dishParameters[dishID][16];
 
-function TanInit(keyID)                   = secondaryDishParam[keyID][0];
-function ForwardTanFin(keyID)             = secondaryDishParam[keyID][1];
-function BackTanFin(keyID)                = secondaryDishParam[keyID][2];
-function ForwardTanArcExpo(keyID)         = secondaryDishParam[keyID][3];
-function BackTanArcExpo(keyID)            = secondaryDishParam[keyID][4];
-function TransitionAngleInit(keyID)       = secondaryDishParam[keyID][5];
-function ForwardTransitionAngleFin(keyID) = secondaryDishParam[keyID][6];
-function BackTransitionAngleFin(keyID)    = secondaryDishParam[keyID][7];
-function ForwardFilRatio(keyID)           = secondaryDishParam[keyID][8];
-function BackFilRatio(keyID)              = secondaryDishParam[keyID][9];
+function TanInit(keyID)                   = secondaryDishParam[secondDishID][0];
+function ForwardTanFin(keyID)             = secondaryDishParam[secondDishID][1];
+function BackTanFin(keyID)                = secondaryDishParam[secondDishID][2];
+function ForwardTanArcExpo(keyID)         = secondaryDishParam[secondDishID][3];
+function BackTanArcExpo(keyID)            = secondaryDishParam[secondDishID][4];
+function TransitionAngleInit(keyID)       = secondaryDishParam[secondDishID][5];
+function ForwardTransitionAngleFin(keyID) = secondaryDishParam[secondDishID][6];
+function BackTransitionAngleFin(keyID)    = secondaryDishParam[secondDishID][7];
+function ForwardFilRatio(keyID)           = secondaryDishParam[secondDishID][8];
+function BackFilRatio(keyID)              = secondaryDishParam[secondDishID][9];
 
 function TanInit2(keyID)                   = secondaryDishParam[keyID][9];
 function ForwardTanFin2(keyID)             = secondaryDishParam[keyID][10];
