@@ -22,28 +22,28 @@ mx_al_tp_key = [
      "indent_inset", 3
      ];
 
-CheckCross = false;
+GlobalCheckCross = false;
 GlobalDish = true;
 GlobalStem = true;
 
 keyIndex = 5;
+//OR
 bulk = false;
 start=1;
 last=5;
+
 if (bulk==false) {
 keycap(
   keyID = keyIndex, //change profile refer to KeyParameters Struct
   Dish  = GlobalDish, //turn on dish cut
   Stem  = GlobalStem,
-  crossSection  = false,
+  crossSection  = GlobalCheckCross,
   visualizeDish = false, // turn on debug visual of Dish 
   Sym = true //turn on 2ndrary filled symetry 
 );
 }
 
 if (bulk==true) {
-start=1;
-last=5;
 translate([0,3*19,0])
 rotate([0,0,180])
 for (i = [start:last]) {
@@ -54,7 +54,7 @@ for (i = [start:last]) {
       keyID = i, //change profile refer to KeyParameters Struct
       Dish  = GlobalDish, //turn on dish cut
       Stem  = GlobalStem,
-      crossSection  = false,
+      crossSection  = GlobalCheckCross,
       visualizeDish = false, // turn on debug visual of Dish 
       Sym = true //turn on 2ndrary filled symetry 
     );
@@ -106,25 +106,25 @@ h = 1;
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid, BotLen, TWDif, TLDif, keyh, WSft, LSft  XSkew, YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-  [17.16, 17.16,  6.5,  7.5, 13.6,   0,   0,    6,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //0 R3
+  [17.16, 17.16,  6.5,  7.5, 13.9,   0,   0,    6,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //0 R3
   [17.16, 17.16,  6.5,  7.5, 16.7,   0,   0,   -8,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //1 R1
   [17.16, 17.16,  6.5,  7.5, 13.9 ,  0,   0,   -8,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //2 R2
   [17.16, 17.16,  6.5,  7.5, 13.9,   0,   0,    6,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //3 R3DD
-  [17.16, 17.16,  6.5, 7.75, 14.9,   0, .25,   14,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //4 R4
+  [17.16, 17.16,  6.5, 7.75, 14.9,   0,-.25,   14,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //4 R4
   [17.16, 17.16,  6.5, 7.75, 17.8 ,  0,1.15,   15,      0,     0,   2,1.75,      1,      5,      1,    3.5,      2,      2], //5 R5
 
     //left outer column curved in
   [17.16, 17.16,  6.5,  7.5, 17.1,-.75,   0,   -8,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //6  R1L
   [17.16, 17.16,  6.5,  7.5, 14.8,-.75,   0,   -8,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //7  R2L
   [17.16, 17.16,  6.5,  7.5, 14.3,-.75,   0,    6,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //8  R3L
-  [17.16, 17.16,  6.5, 7.75, 15.1,-.75, .45,   14,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //9  R4L
+  [17.16, 17.16,  6.5, 7.75, 15.1,-.75,-.25,   14,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //9  R4L
   [17.16, 17.16,  6.5, 7.75, 17.8,-.75,1.15,   15,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //10 R5L
 
     //right outer column curved in
   [17.16, 17.16,  6.5,  7.5, 17.1, .75,   0,   -8,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //11 R1R
   [17.16, 17.16,  6.5,  7.5, 14.8, .75,   0,   -8,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //12 R2R
   [17.16, 17.16,  6.5,  7.5, 14.3, .75,   0,    6,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //13 R3R
-  [17.16, 17.16,  6.5, 7.75, 15.1, .75, .45,   14,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //14 R4R
+  [17.16, 17.16,  6.5, 7.75, 15.1, .75,-.25,   14,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //14 R4R
   [17.16, 17.16,  6.5, 7.75, 17.8, .75,1.15,   15,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2]  //15 R5R
 
   //DES PLUS
@@ -194,16 +194,6 @@ function ForwardTransitionAngleFin(keyID) = secondaryDishParam[secondDishID][6];
 function BackTransitionAngleFin(keyID)    = secondaryDishParam[secondDishID][7];
 function ForwardFilRatio(keyID)           = secondaryDishParam[secondDishID][8];
 function BackFilRatio(keyID)              = secondaryDishParam[secondDishID][9];
-
-function TanInit2(keyID)                   = secondaryDishParam[keyID][9];
-function ForwardTanFin2(keyID)             = secondaryDishParam[keyID][10];
-function BackTanFin2(keyID)                = secondaryDishParam[keyID][11];
-function TanArcExpo2(keyID)                = secondaryDishParam[keyID][12];
-function TransitionAngleInit2(keyID)       = secondaryDishParam[keyID][13];
-function ForwardTransitionAngleFin2(keyID) = secondaryDishParam[keyID][14];
-function BackTransitionAngleFin2(keyID)    = secondaryDishParam[keyID][15];
-function ForwardFilAngle2(keyID)           = secondaryDishParam[keyID][16];
-function BackFilAngle2(keyID)              = secondaryDishParam[keyID][17];
 
 function FrontTrajectory(keyID) = 
   [
