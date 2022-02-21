@@ -34,8 +34,3 @@ cp $INPUTFILE 14$INPUTFILE && $OPEN_SCAD $INPUTFILE -D keyIndex=14 -o $OUTPUTDIR
 #cp $INPUTFILE 16$INPUTFILE && $OPEN_SCAD $INPUTFILE -D keyIndex=16 -o $OUTPUTDIR/R1DESP.stl >/dev/null 2>&1  && rm 16$INPUTFILE && echo 'Rendered R1DESP.stl' &
 
 echo 'Please wait for STL files to appear in '$OUTPUTDIR'/ directory!'
-
-# echo 'Removing intermediary things/*.scad files...'
-# rm -f things/right-bottom-plate.scad
-# rm -f things/right.scad
-# rm -f things/left.scad
