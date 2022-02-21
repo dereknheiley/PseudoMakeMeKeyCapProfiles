@@ -23,6 +23,6 @@ A taller and rearranged version of DES for keywell ergo boards. Similar to MT3 a
 * R4 bottom row (taller version of DES R2)
 * R5 bottom two row (dacman) & thumbs (DES R1 rotated 180)
 ![DES_Plus](Photo/des_plus_mt4.png)
-![MT4](Photo/compactyl.png)
-![MT4](Photo/compactyl-2.png)
+![DES_Plus_MT4](Photo/compactyl-3-des-plus.png)
+![DES_MT4](Photo/compactyl.png)
 
