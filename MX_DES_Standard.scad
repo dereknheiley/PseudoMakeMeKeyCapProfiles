@@ -14,7 +14,7 @@ GlobalCheckCross = false;
 
 keyIndex = 3;
 //OR
-bulk = true;
+bulk = false;
 start=1;
 last=5;
 
