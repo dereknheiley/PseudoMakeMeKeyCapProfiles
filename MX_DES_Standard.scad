@@ -10,24 +10,65 @@ use <skin.scad>
 /*DES (Distorted Elliptical Saddle) Sculpted Profile for 6x3 and corne thumb 
 Version 2: Eliptical Rectangle
 */
-mirror([0,0,0])keycap(
-  keyID  = 0, //change profile refer to KeyParameters Struct
+GlobalCheckCross = false;
+
+keyIndex = 3;
+//OR
+bulk = true;
+start=1;
+last=5;
+
+if (bulk==false) {
+keycap(
+  keyID  = keyIndex, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   Dish   = true, //turn on dish cut
   Stab   = 0, 
   visualizeDish = false, // turn on debug visual of Dish 
-  crossSection  = false, // center cut to check internal
+  crossSection  = GlobalCheckCross, // center cut to check internal
   homeDot = false, //turn on homedots
   Legends = false
  );
+}
 
-// color( "black", 0.5 )
-//     translate([0,0,0])
-//       union() {
-//         rotate([0,0,180]) import("STL/SA-R3.stl");
-//         import("STL/SA-R3.stl");
-//       }
+if (bulk==true) {
+translate([0,3*19,-0.7])
+rotate([0,0,180])
+for (i = [start:last]) {
+    translate([0,(i-start)*19,0])
+    rotate([0,0,180])
+    //mirror([0,0,0])
+    //mirror([0,0,0])
+    keycap(
+      keyID  = i, //change profile refer to KeyParameters Struct
+      cutLen = 0, //Don't change. for chopped caps
+      Stem   = true, //tusn on shell and stems
+      Dish   = true, //turn on dish cut
+      Stab   = 0, 
+      visualizeDish = false, // turn on debug visual of Dish 
+      crossSection  = GlobalCheckCross, // center cut to check internal
+      homeDot = false, //turn on homedots
+      Legends = false
+     );
+}
+
+showReference=false;
+if (showReference){
+  color( "blue", 0.5 )
+    translate([0,0,0])
+       union() {
+        //rotate([0,0,180]) import("STL/SA-R3.stl");
+        //translate([0,4*19,0]) scale([1,1,1.15]) import("STL/matty3-deep-R0.stl");
+        translate([0,3*19,0]) scale([1,1,1.15]) import("STL/matty3-deep-R1.stl");
+        translate([0,2*19,0]) scale([1,1,1.15]) import("STL/matty3-deep-R2.stl");
+        translate([0,1*19,0]) scale([1,1,1.15]) import("STL/matty3-deep-R3.stl");
+        translate([0,0*19,0]) scale([1,1,1.15]) import("STL/matty3-deep-R4.stl");
+        //translate([0,-1*19,0]) scale([1,1,1.15]) rotate([0,0,180]) import("STL/matty3-deep-R0.stl");
+        translate([0,-1*19,0]) scale([1,1,1.07]) rotate([0,0,180]) import("STL/SA-R1.stl");
+      }
+}
+}
 
 mx_al_tp_key = [
      "base_sx", 18.5,
@@ -76,26 +117,26 @@ stemLayers      = 50; //resolution of stem to cap top transition
 keyParameters = //keyParameters[KeyID][ParameterID]
 [
 //  BotWid,BotLen,TWDif,TLDif,  keyh,WSft,LSft,XSkew,  YSkew, ZSkew, WEx, LEx, CapR0i, CapR0f, CapR1i, CapR1f, CapREx, StemEx
-    [17.16, 17.16,  6.5,  7.5, 13.6,   0,   0,    4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //0 R3
-    [17.16, 17.16,  6.5,  7.5, 16.6,   0,   0,   -4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //1 R1
-    [17.16, 17.16,  6.5,  7.5, 14.4 ,   0,   0,   -3,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //2 R2
-    [17.16, 17.16,  6.5,  7.5, 13.6,   0,   0,    4,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //3 R3DD
-    [17.16, 17.16,  6.5, 7.75, 14.6,   0, .45,  -13,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //4 R4
-    [17.16, 17.16,  6.5, 7.75, 17.8 ,   0,-.25,   20,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //5 R5
+    [17.16, 17.16,  6.5,  7.5, 13.2,   0,   0,    6,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //0 R3
+    [17.16, 17.16,  6.5,  7.5, 16.1,   0,   0,   -8,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //1 R1
+    [17.16, 17.16,  6.5,  7.5, 13.1 ,  0,   0,   -8,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //2 R2
+    [17.16, 17.16,  6.5,  7.5, 13.2,   0,   0,    6,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //3 R3DD
+    [17.16, 17.16,  6.5, 7.75, 14.1,   0,-.25,   14,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //4 R4
+    [17.16, 17.16,  6.5, 7.75, 17.4 ,  0,1.15,   15,      0,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //5 R5
 
     //left outer column curved in
-    [17.16, 17.16,  6.5,  7.5, 17.1,-.75,   0,   -4,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //6  R1
-    [17.16, 17.16,  6.5,  7.5, 14.8 ,-.75,   0,   -3,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //7  R2
-    [17.16, 17.16,  6.5,  7.5, 14.3, -.75,   0,    4,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //8  R3
-    [17.16, 17.16,  6.5, 7.75, 15.1,-.75, .45,  -13,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //9  R4
-    [17.16, 17.16,  6.5, 7.75, 17.8 ,-.75,-.25,   20,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //10 R5
+    [17.16, 17.16,  6.5,  7.5, 17.0,-.75,   0,   -8,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //6  R1
+    [17.16, 17.16,  6.5,  7.5, 14.2,-.75,   0,   -8,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //7  R2
+    [17.16, 17.16,  6.5,  7.5, 14.2,-.75,   0,    6,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //8  R3
+    [17.16, 17.16,  6.5, 7.75, 15.1,-.75,-.25,   14,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //9  R4
+    [17.16, 17.16,  6.5, 7.75, 17.8,-.75,1.15,   15,     -8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //10 R5
 
     //right outer column curved in
-    [17.16, 17.16,  6.5,  7.5, 17.1, .75,   0,   -4,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //11 R1
-    [17.16, 17.16,  6.5,  7.5, 14.8 , .75,   0,   -3,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //12 R2
-    [17.16, 17.16,  6.5,  7.5, 14.3,  .75,   0,    4,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //13 R3
-    [17.16, 17.16,  6.5, 7.75, 15.1, .75, .45,  -13,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //14 R4
-    [17.16, 17.16,  6.5, 7.75, 17.8 , .75,-.25,   20,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //15 R5
+    [17.16, 17.16,  6.5,  7.5, 17.0, .75,   0,   -8,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //11 R1
+    [17.16, 17.16,  6.5,  7.5, 14.2, .75,   0,   -8,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //12 R2
+    [17.16, 17.16,  6.5,  7.5, 14.2, .75,   0,    6,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //13 R3
+    [17.16, 17.16,  6.5, 7.75, 15.1, .75,-.25,   14,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //14 R4
+    [17.16, 17.16,  6.5, 7.75, 17.8, .75,1.15,   15,      8,     0,   2,1.25,      1,      5,      1,    3.5,      2,      2], //15 R5
 ];
 
 dishParameters = //dishParameter[keyID][ParameteID]
@@ -314,8 +355,8 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false,
      } 
    }
      if(crossSection == true) {
-       translate([0,-15,-.1])cube([15,30,20]); 
-//      translate([-15.1,-15,-.1])cube([15,30,20]); 
+       // translate([0,-15,-.1])cube([15,30,20]); 
+       translate([-15.1,-15,-.1])cube([15,30,20]); 
      }
 
   }
@@ -330,11 +371,11 @@ module keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false,
 }
 //------------------stems 
 
-MXWid = 4.03/2+Tol; //horizontal lenght
-MXLen = 4.23/2+Tol; //vertical length
+MXWid = 4.05/2+Tol; //horizontal lenght
+MXLen = 4.05/2+Tol; //vertical length
 
 MXWidT = 1.15/2+Tol; //horizontal thickness
-MXLenT = 1.25/2+Tol; //vertical thickness
+MXLenT = 1.17/2+Tol; //vertical thickness
 
 function stem_internal(sc=1) = sc*[
 [MXLenT, MXLen],[MXLenT, MXWidT],[MXWid, MXWidT],
