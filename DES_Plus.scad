@@ -288,8 +288,8 @@ function CapTranslation(t, keyID) =
 
 function InnerTranslation(t, keyID) =
   [
-    ((t)/layers*TopWidShift(keyID)),   //X shift
-    ((t)/layers*TopLenShift(keyID)),   //Y shift
+    ((-t)/layers*TopWidShift(keyID)),   //X shift
+    ((-t)/layers*TopLenShift(keyID)),   //Y shift
     (t/layers*(KeyHeight(keyID)-topthickness))    //Z shift
   ];
 
@@ -321,16 +321,16 @@ function InnerTransform(t, keyID) =
   
 function StemTranslation(t, keyID) =
   [
-    ((t)/stemLayers*TopWidShift(keyID)),   //X shift
-    ((t)/stemLayers*TopLenShift(keyID)),   //Y shift
+    (-(t)/stemLayers*TopWidShift(keyID)),   //X shift
+    (-(t)/stemLayers*TopLenShift(keyID)),   //Y shift
     stemCrossHeight+.5+StemBrimDep + (t/stemLayers*(KeyHeight(keyID)- topthickness - stemCrossHeight-.1 -StemBrimDep))    //Z shift
   ];
 
 function StemRotation(t, keyID) =
   [
-    ((t)/stemLayers*XAngleSkew(keyID)),   //X shift
-    ((t)/stemLayers*YAngleSkew(keyID)),   //Y shift
-    ((t)/stemLayers*ZAngleSkew(keyID))    //Z shift
+    (-(t)/stemLayers*XAngleSkew(keyID)),   //X shift
+    (-(t)/stemLayers*YAngleSkew(keyID)),   //Y shift
+    (-(t)/stemLayers*ZAngleSkew(keyID))    //Z shift
   ];
 
 function StemTransform(t, keyID) =
